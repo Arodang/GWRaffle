@@ -56,8 +56,31 @@ function drawWinners() {
 	//#Read until newline
 	//Set up dictionary with ticket value as key
 	//Draw random up to last ticket value
+	var textContent = document.getElementById("entriesText").value;
+	var ticketArray = textContent.split("\n");
+	var contestantArray = [];
+	var i;
+	for (i = 0; i < ticketArray.length; i++) {
+		
+		var username = ticketArray[i].replace(i+1, "");
+		username = username.substring(1, username.length);
+		if (username != "") {
+			contestantArray[i] = username;
+		}
+	}
+	
+	console.log(contestantArray);
+	var maxNum = i+1;
+	var winnerOneNumber = generateRandom(maxNum);
+	var winnerTwoNumber = generateRandom(maxNum);
+	var winnerThreeNumber = generateRandom(maxNum);
+	
+	
 }
 
+function generateRandom(max) {
+	return Math.floor(Math.rand() * max) + 1;
+}
 
 function writeValues() {
 	var username = document.getElementById("username").value;
