@@ -32,32 +32,33 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Have a nice script!</h3>
-<a href="draw.html"> Draw winners</a>
-<div id="instructions"> 
-<h4> Instructions: </h4>
-<p> Enter the name of the user that bought the tickets, the ticket to start at (if the last ticket sold was 160, enter 161), and the number of tickets the user bought. <br>
-Click "Write" then "Copy Output" and follow the instructions in the popup. Paste the text into the forum post.
- </p>
-</div>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Raffle Winners!</h3>
+
 <form>
-  User: <br>
-  <input id="username" type="text">
-  <br>
-  Starting at: <br>
-  <input id="startNum" type="number">
-  <br>
-  Number of tickets: <br>
-  <input id="ticketNum" type="number">
+	Input entry list: <br>
+	<textarea id="entriesText"> Put the raffle contestant list here! </textarea>
   <br>
 </form>
-<button onclick="writeValues()">Write</button>
-<button onclick="copyToClipboard()">Copy Output </button>
-<p id="outputValues">
-  Nobody here but us Charr...
-</p>
+<button onclick="drawWinners()">Draw!</button>
+<!--<button onclick="copyToClipboard()">Copy Output </button>-->
+<div id="outputValues">
+  <h4> Grand prize! </h3>
+  <p id="grandPrize"> </p>
+  <h4> Bronze Prize! </h3>
+  <p id="bronzePrize"> </p>
+</div>
 
 <script>
+
+function drawWinners() {
+	//Get winner list
+	//#read int
+	//#Read until newline
+	//Set up dictionary with ticket value as key
+	//Draw random up to last ticket value
+}
+
+
 function writeValues() {
 	var username = document.getElementById("username").value;
 	var startNum = parseInt(document.getElementById("startNum").value);
