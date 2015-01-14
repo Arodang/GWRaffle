@@ -42,10 +42,8 @@
 <button onclick="drawWinners()">Draw!</button>
 <!--<button onclick="copyToClipboard()">Copy Output </button>-->
 <div id="outputValues">
-  <h4> Grand prize! </h3>
-  <p id="grandPrize"> </p>
-  <h4> Bronze Prize! </h3>
-  <p id="bronzePrize"> </p>
+  <h4> And the winner is... </h3>
+  <p id="prizeWinner"> </p>
 </div>
 
 <script>
@@ -71,15 +69,17 @@ function drawWinners() {
 	
 	console.log(contestantArray);
 	var maxNum = i+1;
-	var winnerOneNumber = generateRandom(maxNum);
-	var winnerTwoNumber = generateRandom(maxNum);
-	var winnerThreeNumber = generateRandom(maxNum);
+	var winnerNumber = generateRandom(maxNum);
+	var winnerUsername = contestantArray[winnerNumber];
 	
+	var winnerText = "Ticket # " + winnerNumber + ": " + winnerUsername;
+	document.getElementById("prizeWinner").innerHTML = winnerText;
+	return false;
 	
 }
 
 function generateRandom(max) {
-	return Math.floor(Math.rand() * max) + 1;
+	return Math.floor(Math.random() * max);
 }
 
 function writeValues() {

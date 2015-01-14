@@ -54,7 +54,7 @@ Click "Write" then "Copy Output" and follow the instructions in the popup. Paste
 <button onclick="writeValues()">Write</button>
 <button onclick="copyToClipboard()">Copy Output </button>
 <p id="outputValues">
-  Nobody here but us Charr...
+  
 </p>
 
 <script>
@@ -71,7 +71,8 @@ function writeValues() {
 		text = text + i + " " + username + "\n";
 	}
 	
-	document.getElementById("outputValues").innerHTML = text;
+	document.getElementById("outputValues").innerHTML += text;
+	document.getElementById("startNum").value = stopAt;
 	return false;
 }
 //Credit to http://stackoverflow.com/a/6055620l
