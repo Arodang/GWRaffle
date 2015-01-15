@@ -42,8 +42,13 @@
 <button onclick="drawWinners()">Draw!</button>
 <!--<button onclick="copyToClipboard()">Copy Output </button>-->
 <div id="outputValues">
-  <h4> And the winner is... </h3>
+  <h4>And the winner is...</h3>
   <p id="prizeWinner"> </p>
+</div>
+
+<div>
+	<h5>Previous winning tickets:</h5>
+	<p id="previousWinners"></p>
 </div>
 
 <script>
@@ -67,19 +72,40 @@ function drawWinners() {
 		}
 	}
 	
-	console.log(contestantArray);
-	var maxNum = i+1;
-	var winnerNumber = generateRandom(maxNum);
-	var winnerUsername = contestantArray[winnerNumber];
+	var maxNum = i;
 	
-	var winnerText = "Ticket # " + winnerNumber + ": " + winnerUsername;
-	document.getElementById("prizeWinner").innerHTML = winnerText;
+	var previousWinners = document.getElementById("previousWinners").innerHTML;
+	previousWinners = previousWinners.split(" ");
+	
+	var winnerNumber = generateRandom(maxNum);
+	var atLength = false;
+	if (previousWinners.length < ticketArray.length) {
+		while (contains(previousWinners, winnerNumber)) {
+			winnerNumber = generateRandom(maxNum);
+		}
+		var winnerUsername = contestantArray[winnerNumber];
+		document.getElementById("previousWinners").innerHTML += winnerNumber + " ";
+		var winnerText = "Ticket # " + winnerNumber + ": " + winnerUsername;
+		document.getElementById("prizeWinner").innerHTML = winnerText;
+	}
+	
+	
+	
 	return false;
 	
 }
 
 function generateRandom(max) {
 	return Math.floor(Math.random() * max);
+}
+
+function contains(arr, ticketNum) {
+	for (var i = 0; i < arr.length; i++) {
+		if(arr[i] == ticketNum) {
+			return true;
+		}
+	}
+	return false;
 }
 
 function writeValues() {

@@ -52,13 +52,13 @@ Click "Write" then "Copy Output" and follow the instructions in the popup. Paste
   <br>
 </form>
 <button onclick="writeValues()">Write</button>
-<button onclick="copyToClipboard()">Copy Output </button>
-<p id="outputValues">
-  
-</p>
+<button onclick="copyToClipboard()">Copy Output</button>
+<p id="outputValues"></p>
 
 <script>
 function writeValues() {
+	//TODO: Make sure you can't win on the same ticket
+	//Display previous winners
 	var username = document.getElementById("username").value;
 	var startNum = parseInt(document.getElementById("startNum").value);
 	var ticketNum = parseInt(document.getElementById("ticketNum").value);
